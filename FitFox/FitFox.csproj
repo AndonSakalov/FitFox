@@ -15,4 +15,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FitFox.Data.Models\FitFox.Data.Models.csproj" />
+    <ProjectReference Include="..\FitFox.Data\FitFox.Data.csproj" />
+  </ItemGroup>
+
 </Project>
