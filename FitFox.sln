@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFox", "FitFox\FitFox.csproj", "{50A6BC22-1C16-4717-9EF7-A969F187363B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFox.Data", "FitFox.Data\FitFox.Data.csproj", "{7EDD47CD-D656-4336-A031-530360FF56E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50A6BC22-1C16-4717-9EF7-A969F187363B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A6BC22-1C16-4717-9EF7-A969F187363B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A6BC22-1C16-4717-9EF7-A969F187363B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A6BC22-1C16-4717-9EF7-A969F187363B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EDD47CD-D656-4336-A031-530360FF56E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EDD47CD-D656-4336-A031-530360FF56E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EDD47CD-D656-4336-A031-530360FF56E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EDD47CD-D656-4336-A031-530360FF56E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7EDD47CD-D656-4336-A031-530360FF56E3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D0BB31D-2A6E-4130-A684-F1E1E588C514}
+	EndGlobalSection
+EndGlobal
