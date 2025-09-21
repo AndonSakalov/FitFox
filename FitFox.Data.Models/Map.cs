@@ -10,6 +10,7 @@ namespace FitFox.Data.Models
 		{
 			Id = Guid.NewGuid();
 			Lessons = new HashSet<Lesson>();
+			IsDeleted = false;
 		}
 
 		[Required]
@@ -22,5 +23,7 @@ namespace FitFox.Data.Models
 
 		[Comment("Collection of the lessons in the map.")]
 		public virtual ICollection<Lesson> Lessons { get; set; }
+
+		public bool IsDeleted { get; set; }
 	}
 }

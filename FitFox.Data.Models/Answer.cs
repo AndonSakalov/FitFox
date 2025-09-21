@@ -8,6 +8,7 @@ namespace FitFox.Data.Models
 		public Answer()
 		{
 			Id = Guid.NewGuid();
+			IsDeleted = false;
 		}
 
 		[Required]
@@ -19,5 +20,7 @@ namespace FitFox.Data.Models
 		[MinLength(3)]
 		[MaxLength(200)]
 		public string Text { get; set; } = null!;
+
+		public bool IsDeleted { get; set; }
 	}
 }

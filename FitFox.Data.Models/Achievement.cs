@@ -9,6 +9,8 @@ namespace FitFox.Data.Models
 		public Achievement()
 		{
 			this.Id = Guid.NewGuid();
+			AchievementUsers = new HashSet<UserAchievement>();
+			IsDeleted = false;
 		}
 
 		[Required]
@@ -41,5 +43,8 @@ namespace FitFox.Data.Models
 		[MinLength(1)]
 		[MaxLength(2048)]
 		public string IconUrl { get; set; } = null!;
+		public virtual ICollection<UserAchievement> AchievementUsers { get; set; }
+
+		public bool IsDeleted { get; set; }
 	}
 }

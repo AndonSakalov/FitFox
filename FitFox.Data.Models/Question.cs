@@ -9,6 +9,7 @@ namespace FitFox.Data.Models
 		{
 			Id = Guid.NewGuid();
 			AnswerOptions = new HashSet<Answer>();
+			IsDeleted = false;
 		}
 
 		[Required]
@@ -29,5 +30,7 @@ namespace FitFox.Data.Models
 		public virtual Answer CorrectAnswer { get; set; } = null!;
 
 		public ICollection<Answer> AnswerOptions { get; set; }
+
+		public bool IsDeleted { get; set; }
 	}
 }

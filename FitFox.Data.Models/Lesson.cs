@@ -9,6 +9,7 @@ namespace FitFox.Data.Models
 		{
 			Id = Guid.NewGuid();
 			Questions = new List<Question>();
+			IsDeleted = false;
 		}
 
 		[Required]
@@ -35,5 +36,7 @@ namespace FitFox.Data.Models
 
 		[Comment("Collection of the questions that the lesson consists of.")]
 		public virtual ICollection<Question> Questions { get; set; }
+
+		public bool IsDeleted { get; set; }
 	}
 }

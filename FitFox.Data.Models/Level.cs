@@ -8,6 +8,7 @@ namespace FitFox.Data.Models
 		public Level()
 		{
 			Id = Guid.NewGuid();
+			IsDeleted = false;
 		}
 
 		[Required]
@@ -25,5 +26,7 @@ namespace FitFox.Data.Models
 		[Required]
 		[Comment("The XP that is required to get to this level.")]
 		public int RequiredXP { get; set; }
+
+		public bool IsDeleted { get; set; }
 	}
 }
