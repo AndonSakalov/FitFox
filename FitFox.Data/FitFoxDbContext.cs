@@ -27,6 +27,7 @@ namespace FitFox.Data
 
 		public virtual DbSet<Achievement> Achievements { get; set; }
 		public virtual DbSet<Lesson> Lessons { get; set; }
+		public virtual DbSet<Map> Maps { get; set; }
 	}
 }
 

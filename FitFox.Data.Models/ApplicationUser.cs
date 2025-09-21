@@ -18,11 +18,12 @@ namespace FitFox.Data.Models
 		[Range(0, int.MaxValue)]
 		public int CurrentXP { get; set; }
 
+		[Required]
 		[Comment("Identifier of the level.")]
 		public Guid LevelId { get; set; }
 
 		[Comment("The current level of the user. Loaded lazily.")]
-		public virtual Level Level { get; set; }
+		public virtual Level Level { get; set; } = null!;
 
 		[Comment("Collection of the User's achievements.")]
 		public virtual ICollection<Achievement> Achievements { get; set; }
