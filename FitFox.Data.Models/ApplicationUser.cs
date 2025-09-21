@@ -12,9 +12,10 @@ namespace FitFox.Data.Models
 			this.CurrentXP = 0;
 			Achievements = new HashSet<Achievement>();
 			CompletedLessons = new HashSet<Lesson>();
+			MapsCompleted = new HashSet<Map>();
 		}
 
-		[Comment("The current xp of the user.")]
+		[Comment("The current XP of the user. Overall XP, not of the current level.")]
 		[Range(0, int.MaxValue)]
 		public int CurrentXP { get; set; }
 
@@ -30,5 +31,8 @@ namespace FitFox.Data.Models
 
 		[Comment("Collection of the User's finished lessons.")]
 		public virtual ICollection<Lesson> CompletedLessons { get; set; }
+
+		[Comment("Collection of the User's finished maps.")]
+		public virtual ICollection<Map> MapsCompleted { get; set; }
 	}
 }
