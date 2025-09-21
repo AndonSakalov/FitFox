@@ -21,7 +21,7 @@ namespace FitFox.Data.Models
 		[Comment("Identifier of the level.")]
 		public Guid LevelId { get; set; }
 
-		[Comment("The current level of the user.")]
+		[Comment("The current level of the user. Loaded lazily.")]
 		public virtual Level Level { get; set; }
 
 		[Comment("Collection of the User's achievements.")]
