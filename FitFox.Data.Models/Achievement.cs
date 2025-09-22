@@ -1,4 +1,5 @@
 ﻿using FitFox.Data.Models.Enums;
+using FitFox.Data.Models.MappingModels;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,6 +14,7 @@ namespace FitFox.Data.Models
 			IsDeleted = false;
 		}
 
+		[Key]
 		[Required]
 		[Comment("The Identifier of the achievement.")]
 		public Guid Id { get; set; }

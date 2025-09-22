@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FitFox.Data.Models.MappingModels;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FitFox.Data.Models
 {
@@ -8,10 +10,12 @@ namespace FitFox.Data.Models
 		public Lesson()
 		{
 			Id = Guid.NewGuid();
-			Questions = new List<Question>();
+			Questions = new HashSet<Question>();
+			LessonUsers = new HashSet<UserLesson>();
 			IsDeleted = false;
 		}
 
+		[Key]
 		[Required]
 		[Comment("The identifier of the lesson.")]
 		public Guid Id { get; set; }
@@ -32,10 +36,13 @@ namespace FitFox.Data.Models
 		public Guid MapId { get; set; }
 
 		[Comment("The Map that this lesson belongs to. Mapped lazily.")]
+		[ForeignKey(nameof(MapId))]
 		public virtual Map Map { get; set; } = null!;
 
 		[Comment("Collection of the questions that the lesson consists of.")]
 		public virtual ICollection<Question> Questions { get; set; }
+
+		public virtual ICollection<UserLesson> LessonUsers { get; set; }
 
 		public bool IsDeleted { get; set; }
 	}

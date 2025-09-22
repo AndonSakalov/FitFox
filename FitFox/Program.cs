@@ -1,5 +1,6 @@
 using FitFox.Data;
 using FitFox.Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitFox
@@ -12,13 +13,29 @@ namespace FitFox
 
 			// Add services to the container.
 			var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 			builder.Services.AddDbContext<FitFoxDbContext>(options =>
-				options.UseSqlServer(connectionString));
+				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 			builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-			builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-				.AddEntityFrameworkStores<FitFoxDbContext>();
+			builder.Services
+				.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
+			{
+				options.SignIn.RequireConfirmedAccount = false;
+				options.SignIn.RequireConfirmedPhoneNumber = false;
+				options.SignIn.RequireConfirmedEmail = false;
+				options.User.RequireUniqueEmail = true;
+			})
+				.AddEntityFrameworkStores<FitFoxDbContext>()
+				.AddRoles<IdentityRole<Guid>>()
+				.AddSignInManager<SignInManager<ApplicationUser>>()
+				.AddUserManager<UserManager<ApplicationUser>>()
+				.AddDefaultTokenProviders();
+
+
 			builder.Services.AddControllersWithViews();
+			builder.Services.AddRazorPages();
 
 			var app = builder.Build();
 

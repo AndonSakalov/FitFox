@@ -1,8 +1,8 @@
-﻿using FitFox.Data.Models;
+﻿using FitFox.Data.Models.MappingModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FitFox.Data.Configurations
+namespace FitFox.Data.Configurations.MappingConfigurations
 {
 	public class UserAchievementConfiguration : IEntityTypeConfiguration<UserAchievement>
 	{

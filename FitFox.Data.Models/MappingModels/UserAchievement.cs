@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FitFox.Data.Models
+namespace FitFox.Data.Models.MappingModels
 {
 	public class UserAchievement
 	{

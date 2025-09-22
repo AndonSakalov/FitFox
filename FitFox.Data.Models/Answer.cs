@@ -8,9 +8,11 @@ namespace FitFox.Data.Models
 		public Answer()
 		{
 			Id = Guid.NewGuid();
+			Questions = new HashSet<Question>();
 			IsDeleted = false;
 		}
 
+		[Key]
 		[Required]
 		[Comment("The identifier of the answer.")]
 		public Guid Id { get; set; }
@@ -21,6 +23,7 @@ namespace FitFox.Data.Models
 		[MaxLength(200)]
 		public string Text { get; set; } = null!;
 
+		public virtual ICollection<Question> Questions { get; set; }
 		public bool IsDeleted { get; set; }
 	}
 }

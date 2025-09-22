@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FitFox.Data.Models
 {
@@ -12,6 +13,7 @@ namespace FitFox.Data.Models
 			IsDeleted = false;
 		}
 
+		[Key]
 		[Required]
 		[Comment("Identifier of the question.")]
 		public Guid Id { get; set; }
@@ -27,9 +29,16 @@ namespace FitFox.Data.Models
 		public Guid CorrectAnswerId { get; set; }
 
 		[Comment("The correct answer, loaded lazily.")]
+		[ForeignKey(nameof(CorrectAnswerId))]
 		public virtual Answer CorrectAnswer { get; set; } = null!;
+		public virtual ICollection<Answer> AnswerOptions { get; set; }
 
-		public ICollection<Answer> AnswerOptions { get; set; }
+		[Required]
+		[Comment("Identifier of the lesson that this question belongs to.")]
+		public Guid LessonId { get; set; }
+
+		[ForeignKey(nameof(LessonId))]
+		public virtual Lesson Lesson { get; set; } = null!;
 
 		public bool IsDeleted { get; set; }
 	}

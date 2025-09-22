@@ -1,4 +1,5 @@
 ﻿using FitFox.Data.Models.Enums;
+using FitFox.Data.Models.MappingModels;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,9 +11,11 @@ namespace FitFox.Data.Models
 		{
 			Id = Guid.NewGuid();
 			Lessons = new HashSet<Lesson>();
+			MapUsers = new HashSet<UserMap>();
 			IsDeleted = false;
 		}
 
+		[Key]
 		[Required]
 		[Comment("The identifier of the map.")]
 		public Guid Id { get; set; }
@@ -22,7 +25,9 @@ namespace FitFox.Data.Models
 		public MapCategory MapCategory { get; set; }
 
 		[Comment("Collection of the lessons in the map.")]
-		public virtual ICollection<Lesson> Lessons { get; set; }
+		public virtual ICollection<Lesson> Lessons { get; set; } = null!;
+
+		public virtual ICollection<UserMap> MapUsers { get; set; } = null!;
 
 		public bool IsDeleted { get; set; }
 	}

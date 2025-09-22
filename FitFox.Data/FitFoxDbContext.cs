@@ -1,4 +1,5 @@
 ﻿using FitFox.Data.Models;
+using FitFox.Data.Models.MappingModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -8,10 +9,6 @@ namespace FitFox.Data
 {
 	public class FitFoxDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
 	{
-		public FitFoxDbContext()
-		{
-
-		}
 
 		public FitFoxDbContext(DbContextOptions<FitFoxDbContext> options)
 			: base(options)
@@ -36,7 +33,8 @@ namespace FitFox.Data
 
 		//Mapping tables:
 		public virtual DbSet<UserAchievement> UsersAchievements { get; set; }
-
+		public virtual DbSet<UserLesson> UsersLessons { get; set; }
+		public virtual DbSet<UserMap> UsersMaps { get; set; }
 	}
 }
 
