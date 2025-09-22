@@ -1,7 +1,10 @@
 using FitFox.Data;
 using FitFox.Data.Models;
+using FitFox.Services.Data;
+using FitFox.Web.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace FitFox
 {
@@ -33,6 +36,9 @@ namespace FitFox
 				.AddUserManager<UserManager<ApplicationUser>>()
 				.AddDefaultTokenProviders();
 
+
+			builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+			builder.Services.RegisterServices(typeof(MapService).Assembly);
 
 			builder.Services.AddControllersWithViews();
 			builder.Services.AddRazorPages();
