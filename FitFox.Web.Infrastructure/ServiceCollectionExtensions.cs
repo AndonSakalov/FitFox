@@ -29,8 +29,8 @@ namespace FitFox.Web.Infrastructure
 
 				if (idPropInfo == null)
 				{
-					//args[1] = typeof(object);
-					continue;
+					args[1] = typeof(object);
+					//continue;
 				}
 				else
 				{

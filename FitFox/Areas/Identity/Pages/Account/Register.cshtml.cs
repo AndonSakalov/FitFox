@@ -148,7 +148,7 @@ namespace FitFox.Areas.Identity.Pages.Account
 			try
 			{
 				var user = Activator.CreateInstance<ApplicationUser>();
-				user.LevelId = Guid.Parse("7b2d7ecd-cb91-4ac1-9fd8-10b5de7b35ad");
+				user.LevelId = Guid.Parse("11111111-1111-1111-1111-111111111111");
 				return user;
 			}
 			catch

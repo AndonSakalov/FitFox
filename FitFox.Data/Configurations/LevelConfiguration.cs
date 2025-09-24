@@ -8,7 +8,7 @@ namespace FitFox.Data.Configurations
 	{
 		public void Configure(EntityTypeBuilder<Level> builder)
 		{
-			var level1Id = Guid.NewGuid();
+			var level1Id = Guid.Parse("11111111-1111-1111-1111-111111111111");
 			builder.HasData(new Level
 			{
 				Id = level1Id,

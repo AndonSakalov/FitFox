@@ -25,6 +25,7 @@
     <ProjectReference Include="..\FitFox.Data\FitFox.Data.csproj" />
     <ProjectReference Include="..\FitFox.Services.Data\FitFox.Services.Data.csproj" />
     <ProjectReference Include="..\FitFox.Web.Infrastructure\FitFox.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\FitFox.Web.ViewModels\FitFox.Web.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

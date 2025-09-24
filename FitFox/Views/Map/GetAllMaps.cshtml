@@ -1,0 +1,21 @@
+﻿@model IEnumerable<FitFox.Web.ViewModels.Map.MapViewModel>;
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="map-page">
+	<h1 class="display-4">Select a map to begin your learning journey!</h1>
+	<img class="fit-fox-character" src="~/TheFitFoxCharacter.png" />
+	<div class="choose-map">
+		@foreach (var map in Model)
+		{
+			<div class="choose-map-box">
+				<h2>@map.Title</h2>
+				<p>
+					@map.Description
+				</p>
+				<a href="">Start learning</a>
+			</div>	
+		}
+	</div>>
+</div>

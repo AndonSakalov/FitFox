@@ -24,6 +24,18 @@ namespace FitFox.Data.Models
 		[Comment("The category of the map - training, nutrition, hydration, recovery, etc.")]
 		public MapCategory MapCategory { get; set; }
 
+		[Required]
+		[Comment("The display name of the map.")]
+		[MinLength(3)]
+		[MaxLength(100)]
+		public string Title { get; set; } = null!;
+
+		[Required]
+		[Comment("The description of the map.")]
+		[MinLength(10)]
+		[MaxLength(500)]
+		public string Description { get; set; } = null!;
+
 		[Comment("Collection of the lessons in the map.")]
 		public virtual ICollection<Lesson> Lessons { get; set; } = null!;
 
