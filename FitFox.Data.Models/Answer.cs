@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FitFox.Data.Models
 {
@@ -8,7 +9,6 @@ namespace FitFox.Data.Models
 		public Answer()
 		{
 			Id = Guid.NewGuid();
-			Questions = new HashSet<Question>();
 			IsDeleted = false;
 		}
 
@@ -23,7 +23,11 @@ namespace FitFox.Data.Models
 		[MaxLength(200)]
 		public string Text { get; set; } = null!;
 
-		public virtual ICollection<Question> Questions { get; set; }
+		[Required]
+		[ForeignKey(nameof(Question))]
+		public Guid QuestionId { get; set; }
+
+		public virtual Question Question { get; set; }
 		public bool IsDeleted { get; set; }
 	}
 }

@@ -24,9 +24,9 @@ namespace FitFox.Data.Models
 		[MaxLength(200)]
 		public string Text { get; set; } = null!;
 
-		[Required]
+		//[Required]
 		[Comment("The identifier of the correct answer.")]
-		public Guid CorrectAnswerId { get; set; }
+		public Guid? CorrectAnswerId { get; set; }
 
 		[Comment("The correct answer, loaded lazily.")]
 		[ForeignKey(nameof(CorrectAnswerId))]

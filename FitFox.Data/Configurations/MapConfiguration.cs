@@ -11,14 +11,14 @@ namespace FitFox.Data.Configurations
 			builder.HasData(new Map
 			{
 
-				Id = Guid.NewGuid(),
+				Id = Guid.Parse("1afe12ea-606d-49d0-adb9-5f8311d86618"),
 				MapCategory = 0,
 				Title = "Training",
 				Description = "The basics of training with weights.",
 			},
 			new Map
 			{
-				Id = Guid.NewGuid(),
+				Id = Guid.Parse("04493112-8b84-43be-b926-5a32c5524ac2"),
 				MapCategory = 0,
 				Title = "Nutrition",
 				Description = "The basics of nutrition focused on gym progression."

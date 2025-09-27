@@ -4,6 +4,7 @@ using FitFox.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitFox.Data.Migrations
 {
     [DbContext(typeof(FitFoxDbContext))]
-    partial class FitFoxDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250927093902_AddQuestionsOrder")]
+    partial class AddQuestionsOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,155 +90,6 @@ namespace FitFox.Data.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("Answers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("995bd8c0-98e5-441b-96f2-046c4e732022"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("65e73cd9-dec1-4e46-8342-69b204c6b226"),
-                            Text = "Protein, Fats, Carbohydrates"
-                        },
-                        new
-                        {
-                            Id = new Guid("6f682b25-0953-45bc-b4aa-3f77c44f0abd"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("65e73cd9-dec1-4e46-8342-69b204c6b226"),
-                            Text = "Fiber, Antioxidants, Enzymes"
-                        },
-                        new
-                        {
-                            Id = new Guid("754eb19b-0e7b-4f1f-aa8b-214b0c9e4ca1"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("65e73cd9-dec1-4e46-8342-69b204c6b226"),
-                            Text = "Vitamin C, Vitamin D, Vitamin E"
-                        },
-                        new
-                        {
-                            Id = new Guid("5635556a-dc6d-4a95-a804-a353787f29ac"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("a8d6e1f2-5c33-4a0b-8cde-7e2f1a9b3d45"),
-                            Text = "Protein"
-                        },
-                        new
-                        {
-                            Id = new Guid("ad15d6de-bc27-4f9c-925f-6efe5023521b"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("a8d6e1f2-5c33-4a0b-8cde-7e2f1a9b3d45"),
-                            Text = "Fats"
-                        },
-                        new
-                        {
-                            Id = new Guid("5f018738-98c2-45c8-91a8-4048ec7550ea"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("a8d6e1f2-5c33-4a0b-8cde-7e2f1a9b3d45"),
-                            Text = "Carbohydrates"
-                        },
-                        new
-                        {
-                            Id = new Guid("076d322b-61a0-4617-b7c7-adcfcd0e4a64"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("c1f2b3e4-7d8a-4e5b-b2c3-9f0a1d2e3b56"),
-                            Text = "Protein"
-                        },
-                        new
-                        {
-                            Id = new Guid("fc67a38b-6748-4df0-bdec-64ae01dce087"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("c1f2b3e4-7d8a-4e5b-b2c3-9f0a1d2e3b56"),
-                            Text = "Fats"
-                        },
-                        new
-                        {
-                            Id = new Guid("971018fd-870c-4834-b53e-9db728272f58"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("c1f2b3e4-7d8a-4e5b-b2c3-9f0a1d2e3b56"),
-                            Text = "Carbohydrates"
-                        },
-                        new
-                        {
-                            Id = new Guid("cd72868e-1d3c-40e2-99d2-9be1c6482f07"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f78"),
-                            Text = "Protein"
-                        },
-                        new
-                        {
-                            Id = new Guid("b052eb19-2983-4845-9e63-9cb44b67c5f1"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f78"),
-                            Text = "Fats"
-                        },
-                        new
-                        {
-                            Id = new Guid("b975ac50-9a54-4c2e-b36b-d57520da15b3"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f78"),
-                            Text = "Carbohydrates"
-                        },
-                        new
-                        {
-                            Id = new Guid("0b5e5a13-fa78-4329-9e1e-704b4e34c50a"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("83fc33fc-0db2-4695-a950-c494eb58a73c"),
-                            Text = "6"
-                        },
-                        new
-                        {
-                            Id = new Guid("84aa5695-c7af-4620-bb4e-fa860502744e"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("83fc33fc-0db2-4695-a950-c494eb58a73c"),
-                            Text = "4"
-                        },
-                        new
-                        {
-                            Id = new Guid("5b2e033a-3b69-42df-9b10-ac04fefbc4bd"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("83fc33fc-0db2-4695-a950-c494eb58a73c"),
-                            Text = "9"
-                        },
-                        new
-                        {
-                            Id = new Guid("bc272712-432e-4429-bbc0-c489ff3f0380"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("e58fca52-c2da-44a4-b62f-9bd9bd7bb583"),
-                            Text = "5"
-                        },
-                        new
-                        {
-                            Id = new Guid("e00f1bae-9e02-4afb-871f-23a1a3a9884f"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("e58fca52-c2da-44a4-b62f-9bd9bd7bb583"),
-                            Text = "4"
-                        },
-                        new
-                        {
-                            Id = new Guid("8a153745-ee3c-4fcb-b4cb-e73590bd90e3"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("e58fca52-c2da-44a4-b62f-9bd9bd7bb583"),
-                            Text = "9"
-                        },
-                        new
-                        {
-                            Id = new Guid("995c9a90-88fe-4fd2-8762-e3d46c2ea813"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("c46cf154-ee4c-4c5d-ac35-4b4cf69639ce"),
-                            Text = "2"
-                        },
-                        new
-                        {
-                            Id = new Guid("fe9167a4-2f11-4875-899d-83c9d4b031b7"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("c46cf154-ee4c-4c5d-ac35-4b4cf69639ce"),
-                            Text = "4"
-                        },
-                        new
-                        {
-                            Id = new Guid("a2845dd5-e2c0-4c39-87dd-255e08156b89"),
-                            IsDeleted = false,
-                            QuestionId = new Guid("c46cf154-ee4c-4c5d-ac35-4b4cf69639ce"),
-                            Text = "9"
-                        });
                 });
 
             modelBuilder.Entity("FitFox.Data.Models.ApplicationUser", b =>
@@ -350,17 +204,6 @@ namespace FitFox.Data.Migrations
                     b.HasIndex("MapId");
 
                     b.ToTable("Lessons");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            IsDeleted = false,
-                            MapId = new Guid("04493112-8b84-43be-b926-5a32c5524ac2"),
-                            OrderNumber = 1,
-                            Title = "Macronutrients",
-                            XP = 100
-                        });
                 });
 
             modelBuilder.Entity("FitFox.Data.Models.Level", b =>
@@ -504,7 +347,7 @@ namespace FitFox.Data.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasComment("Identifier of the question.");
 
-                    b.Property<Guid?>("CorrectAnswerId")
+                    b.Property<Guid>("CorrectAnswerId")
                         .HasColumnType("uniqueidentifier")
                         .HasComment("The identifier of the correct answer.");
 
@@ -528,64 +371,6 @@ namespace FitFox.Data.Migrations
                     b.HasIndex("LessonId");
 
                     b.ToTable("Questions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("65e73cd9-dec1-4e46-8342-69b204c6b226"),
-                            CorrectAnswerId = new Guid("995bd8c0-98e5-441b-96f2-046c4e732022"),
-                            IsDeleted = false,
-                            LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            Text = "Which are the 3 macronutrients?"
-                        },
-                        new
-                        {
-                            Id = new Guid("a8d6e1f2-5c33-4a0b-8cde-7e2f1a9b3d45"),
-                            CorrectAnswerId = new Guid("ad15d6de-bc27-4f9c-925f-6efe5023521b"),
-                            IsDeleted = false,
-                            LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            Text = "Which macronutrient regulates hormone production?"
-                        },
-                        new
-                        {
-                            Id = new Guid("c1f2b3e4-7d8a-4e5b-b2c3-9f0a1d2e3b56"),
-                            CorrectAnswerId = new Guid("971018fd-870c-4834-b53e-9db728272f58"),
-                            IsDeleted = false,
-                            LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            Text = "Which macronutrient is the main source of energy for the body?"
-                        },
-                        new
-                        {
-                            Id = new Guid("d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f78"),
-                            CorrectAnswerId = new Guid("cd72868e-1d3c-40e2-99d2-9be1c6482f07"),
-                            IsDeleted = false,
-                            LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            Text = "Which nutrient is primarily used for muscle repair?"
-                        },
-                        new
-                        {
-                            Id = new Guid("83fc33fc-0db2-4695-a950-c494eb58a73c"),
-                            CorrectAnswerId = new Guid("5b2e033a-3b69-42df-9b10-ac04fefbc4bd"),
-                            IsDeleted = false,
-                            LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            Text = "How many calories does 1 gram of fat contain?"
-                        },
-                        new
-                        {
-                            Id = new Guid("e58fca52-c2da-44a4-b62f-9bd9bd7bb583"),
-                            CorrectAnswerId = new Guid("e00f1bae-9e02-4afb-871f-23a1a3a9884f"),
-                            IsDeleted = false,
-                            LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            Text = "How many calories does 1 gram of carbohydrates contain?"
-                        },
-                        new
-                        {
-                            Id = new Guid("c46cf154-ee4c-4c5d-ac35-4b4cf69639ce"),
-                            CorrectAnswerId = new Guid("fe9167a4-2f11-4875-899d-83c9d4b031b7"),
-                            IsDeleted = false,
-                            LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            Text = "How many calories does 1 gram of protein contain?"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -813,7 +598,9 @@ namespace FitFox.Data.Migrations
                 {
                     b.HasOne("FitFox.Data.Models.Answer", "CorrectAnswer")
                         .WithMany()
-                        .HasForeignKey("CorrectAnswerId");
+                        .HasForeignKey("CorrectAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FitFox.Data.Models.Lesson", "Lesson")
                         .WithMany("Questions")

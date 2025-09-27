@@ -44,6 +44,9 @@ namespace FitFox.Data.Models
 
 		public virtual ICollection<UserLesson> LessonUsers { get; set; }
 
+		[Comment("The order of this lesson in the map.")]
+		public int OrderNumber { get; set; }
+
 		public bool IsDeleted { get; set; }
 	}
 }
