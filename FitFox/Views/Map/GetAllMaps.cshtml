@@ -12,9 +12,12 @@
 			<div class="choose-map-box">
 				<h2>@map.Title</h2>
 				<p>
-					@map.Description
+					@map.Description 
 				</p>
-				<a href="">Start learning</a>
+				<form asp-controller="Map" asp-action="StartMap" method="post">
+					<input type="hidden" name="mapId" value="@map.Id" />
+					<button type="submit">Start Map</button>
+				</form>
 			</div>	
 		}
 	</div>>

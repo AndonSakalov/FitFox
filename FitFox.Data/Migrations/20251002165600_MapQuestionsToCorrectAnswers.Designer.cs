@@ -4,6 +4,7 @@ using FitFox.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitFox.Data.Migrations
 {
     [DbContext(typeof(FitFoxDbContext))]
-    partial class FitFoxDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251002165600_MapQuestionsToCorrectAnswers")]
+    partial class MapQuestionsToCorrectAnswers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

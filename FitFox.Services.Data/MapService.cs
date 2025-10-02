@@ -2,6 +2,7 @@
 using FitFox.Data.Repository.Interfaces;
 using FitFox.Services.Data.Interfaces;
 using FitFox.Web.ViewModels.Map;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitFox.Services.Data
@@ -10,13 +11,12 @@ namespace FitFox.Services.Data
 	{
 		private readonly IRepository<Map, Guid> _mapRepository;
 
-		public MapService(IRepository<Map, Guid> mapRepository)
+		public MapService(IRepository<Map, Guid> mapRepository, UserManager<ApplicationUser> userManager)
 		{
 			_mapRepository = mapRepository;
 		}
 		public async Task<IEnumerable<MapViewModel>> GetAllMapsAsync()
 		{
-
 			var result = await _mapRepository.GetAllAttached()
 			.Where(m => !m.IsDeleted)
 			.Select(m => new MapViewModel
@@ -30,5 +30,7 @@ namespace FitFox.Services.Data
 
 			return result;
 		}
+
 	}
 }
+
