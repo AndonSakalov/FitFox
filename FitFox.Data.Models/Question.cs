@@ -40,6 +40,9 @@ namespace FitFox.Data.Models
 		[ForeignKey(nameof(LessonId))]
 		public virtual Lesson Lesson { get; set; } = null!;
 
+		[Required]
+		public int OrderNumber { get; set; }
+
 		public bool IsDeleted { get; set; }
 	}
 }

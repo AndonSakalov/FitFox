@@ -1,0 +1,85 @@
+﻿@model FitFox.Web.ViewModels.Question.QuestionViewModel
+
+@{
+    ViewData["Title"] = "Solve Lesson";
+    var lessonId = ViewBag.LessonId;
+    var questionIndex = ViewBag.QuestionIndex;
+}
+
+<div class="container mt-5">
+    <div id="quiz-area" class="text-center">
+        <h2 class="mb-4">@Model.Text</h2>
+
+        <form id="answer-form">
+            <input type="hidden" id="LessonId" value="@lessonId" />
+            <input type="hidden" id="QuestionId" value="@Model.Id" />
+            <input type="hidden" id="QuestionIndex" value="@questionIndex" />
+
+            <div class="list-group">
+                @foreach (var answer in Model.AnswersOptions)
+                {
+                    <label class="list-group-item list-group-item-action">
+                        <input type="radio" name="SelectedAnswerId" value="@answer.Id" required />
+                        <span class="ms-2">@answer.Text</span>
+                    </label>
+                }
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+
+        <div id="feedback" class="mt-3" style="display:none;"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).on("submit", "#answer-form", function (e) {
+            e.preventDefault();
+
+            const lessonId = $("#LessonId").val();
+            const questionId = $("#QuestionId").val();
+            const questionIndex = parseInt($("#QuestionIndex").val());
+            const selectedAnswerId = $("input[name='SelectedAnswerId']:checked").val();
+
+            $.ajax({
+                url: '/Lesson/CheckAnswer',
+                type: 'POST',
+                data: {
+                    lessonId: lessonId,
+                    questionId: questionId,
+                    selectedAnswerId: selectedAnswerId,
+                    questionIndex: questionIndex
+                },
+                success: function (response) {
+                    const feedback = $("#feedback");
+                    feedback.show();
+
+                    if (response.isCorrect) {
+                        feedback.html('<div class="alert alert-success">✅ Correct!</div>');
+                    } else {
+                        feedback.html(`<div class="alert alert-danger">❌ Incorrect! ${response.explanation ?? ''}</div>`);
+                    }
+
+                    $("#answer-form :input").prop("disabled", true);
+
+                    setTimeout(() => {
+
+                    if (response.goToSummary) {
+                        // lesson finished
+                        window.location.href = '/Lesson/LessonSummary?lessonId=@ViewBag.LessonId';
+                    } 
+                    else {
+                        // move to next question
+                        window.location.href = '/Lesson/SolveLesson?lessonId=@ViewBag.LessonId&questionIndex=' + response.nextIndex;
+        }
+                    }, 1500);
+                },
+                error: function () {
+                    alert("Something went wrong. Please try again.");
+                }
+            });
+        });
+    </script>
+}

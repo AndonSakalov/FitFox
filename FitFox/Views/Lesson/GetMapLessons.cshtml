@@ -1,0 +1,20 @@
+﻿@model IEnumerable<FitFox.Web.ViewModels.Lesson.LessonViewModel>;
+
+<div class="lesson-page">
+	<h1 class="display-4">Select a lesson</h1>
+	<img class="fit-fox-character" src="~/TheFitFoxCharacter.png" />
+	<div class="choose-lesson">
+		@foreach (var lesson in Model)
+		{
+			<div class="choose-lesson-box">
+				<h2>Lesson @lesson.OrderNumber</h2>
+				<h3>@lesson.Title</h3>
+					<p>XP: @lesson.XP</p>
+					<form asp-controller="Lesson" asp-action="StartLesson" method="post">
+						<input type="hidden" name="lessonId" value="@lesson.Id" />
+						<button type="submit">Start Lesson</button>
+					</form>
+			</div>
+		}
+	</div>>
+</div>

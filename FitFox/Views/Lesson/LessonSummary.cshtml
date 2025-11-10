@@ -1,0 +1,38 @@
+﻿@{
+	int correctAnswers = @Model.Where(s => s.IsCorrect == true).Count();
+	int totalAnswers = Model.Count;
+}
+@using FitFox.Web.ViewModels.Question
+@model List<QuestionResult>
+
+<h1 class="lesson-results">Lesson Results:</h1>
+<h2 class="lesson-score">Score - @correctAnswers / @totalAnswers</h2>
+<div class="lesson-result-container">
+	@if(Model.Any(a => a.IsCorrect == true))
+	{
+		<div class="correct-answers-wrapper">
+			<h2>Correct answers:</h2>
+			@foreach (var qr in Model.Where(q => q.IsCorrect == true))
+			{
+				<div class="correct-answers">
+					<h3>@qr.QuestionTitle</h3>
+					<p>@qr.CorrectAnswer</p>
+				</div>
+			}
+		</div>
+	}
+	@if (Model.Any(a => a.IsCorrect == false))
+	{
+		<div class="incorrect-answers-wrapper">
+			<h2>Wrong answers:</h2>
+			@foreach (var qr in Model.Where(q => q.IsCorrect == false))
+			{
+				<div class="wrong-answers">
+					<h3>@qr.QuestionTitle</h3>
+					<p>Selected answer: @qr.SelectedAnswer</p>
+					<p>Correct answer: @qr.CorrectAnswer</p>
+				</div>
+			}
+		</div>
+	}
+</div>

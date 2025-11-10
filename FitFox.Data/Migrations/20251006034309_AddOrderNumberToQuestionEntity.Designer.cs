@@ -4,6 +4,7 @@ using FitFox.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitFox.Data.Migrations
 {
     [DbContext(typeof(FitFoxDbContext))]
-    partial class FitFoxDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251006034309_AddOrderNumberToQuestionEntity")]
+    partial class AddOrderNumberToQuestionEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1838,7 +1841,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("995bd8c0-98e5-441b-96f2-046c4e732022"),
                             IsDeleted = false,
                             LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "Which are the 3 macronutrients?"
                         },
                         new
@@ -1847,7 +1850,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("ad15d6de-bc27-4f9c-925f-6efe5023521b"),
                             IsDeleted = false,
                             LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "Which macronutrient regulates hormone production?"
                         },
                         new
@@ -1856,7 +1859,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("971018fd-870c-4834-b53e-9db728272f58"),
                             IsDeleted = false,
                             LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "Which macronutrient is the main source of energy for the body?"
                         },
                         new
@@ -1865,7 +1868,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("cd72868e-1d3c-40e2-99d2-9be1c6482f07"),
                             IsDeleted = false,
                             LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "Which nutrient is primarily used for muscle repair?"
                         },
                         new
@@ -1874,7 +1877,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("5b2e033a-3b69-42df-9b10-ac04fefbc4bd"),
                             IsDeleted = false,
                             LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "How many calories does 1 gram of fat contain?"
                         },
                         new
@@ -1883,7 +1886,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("e00f1bae-9e02-4afb-871f-23a1a3a9884f"),
                             IsDeleted = false,
                             LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "How many calories does 1 gram of carbohydrates contain?"
                         },
                         new
@@ -1892,7 +1895,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("fe9167a4-2f11-4875-899d-83c9d4b031b7"),
                             IsDeleted = false,
                             LessonId = new Guid("26a98b9c-2a98-4714-8d28-99f6ed419834"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "How many calories does 1 gram of protein contain?"
                         },
                         new
@@ -1901,7 +1904,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("3c3fd6c5-5c2d-4ef4-b2a3-fdf7f4d7dc94"),
                             IsDeleted = false,
                             LessonId = new Guid("97300d33-6cc5-48ba-b495-ff21d5b16419"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "What is the typical protein intake per kg of body weight for a person trying to build muscle?"
                         },
                         new
@@ -1910,7 +1913,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("0f9d15b7-8b2f-4df7-8613-93d80d3d3c34"),
                             IsDeleted = false,
                             LessonId = new Guid("97300d33-6cc5-48ba-b495-ff21d5b16419"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "For a cutting diet, which macronutrient is often reduced first?"
                         },
                         new
@@ -1919,7 +1922,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("6c44c89a-c257-4cd5-8653-c3f523b42f15"),
                             IsDeleted = false,
                             LessonId = new Guid("97300d33-6cc5-48ba-b495-ff21d5b16419"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "Which macronutrient is usually prioritized for muscle gain?"
                         },
                         new
@@ -1928,7 +1931,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f3c7b58d-8fbb-4d6e-b2f5-3e6f2d9a7b21"),
                             IsDeleted = false,
                             LessonId = new Guid("97300d33-6cc5-48ba-b495-ff21d5b16419"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "For someone on a low-carb diet, which macronutrient is usually increased to compensate for reduced carbs?"
                         },
                         new
@@ -1937,7 +1940,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("a8e4f0c5-5a2c-4e2e-98d1-0f7bfa36c1b7"),
                             IsDeleted = false,
                             LessonId = new Guid("98479667-cd5b-4953-a442-de348acda994"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "What is the main function of water in the body?"
                         },
                         new
@@ -1946,7 +1949,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("d0c6a5e2-3c2b-4f85-8ed2-1a9b6c7d4f2a"),
                             IsDeleted = false,
                             LessonId = new Guid("98479667-cd5b-4953-a442-de348acda994"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "Which electrolyte is most important for muscle contraction and nerve function?"
                         },
                         new
@@ -1955,7 +1958,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("b8f7d3c4-1a5b-4e8c-9d2a-0f4e3c7b2d1a"),
                             IsDeleted = false,
                             LessonId = new Guid("98479667-cd5b-4953-a442-de348acda994"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "Which electrolyte helps regulate heart rhythm and fluid balance?"
                         },
                         new
@@ -1964,7 +1967,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f1b2d3a4-5e6c-4f8d-9a1b-2c3d4e5f6a7b"),
                             IsDeleted = false,
                             LessonId = new Guid("98479667-cd5b-4953-a442-de348acda994"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "A common sign of dehydration is:"
                         },
                         new
@@ -1973,7 +1976,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f6a5b4c3-7d8e-4f9a-8b1c-5d6e7f8a9b0c"),
                             IsDeleted = false,
                             LessonId = new Guid("98479667-cd5b-4953-a442-de348acda994"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "How many liters of water are generally recommended per day for an average adult?"
                         },
                         new
@@ -1982,7 +1985,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f0e9d8c7-1b2c-4d3e-9f5a-9b0c1d2e3f4a"),
                             IsDeleted = false,
                             LessonId = new Guid("98479667-cd5b-4953-a442-de348acda994"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "Which electrolyte is often lost in large amounts through sweat?"
                         },
                         new
@@ -1991,7 +1994,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f4e3d2c1-5b6c-4d8e-9f9d-3f4a5b6c7d8e"),
                             IsDeleted = false,
                             LessonId = new Guid("98479667-cd5b-4953-a442-de348acda994"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "Magnesium helps with all of the following EXCEPT:"
                         },
                         new
@@ -2000,7 +2003,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("c3b1f8a4-2d7e-4b9c-9a1f-0b6d3e5f7a1b"),
                             IsDeleted = false,
                             LessonId = new Guid("77c74f8c-a3ef-4cb8-8a2c-b71ca6ecd33e"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "Which protein source is considered “complete”, containing all essential amino acids?"
                         },
                         new
@@ -2009,7 +2012,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("b7c8d9e0-1a2b-4c3d-9f4e-3a5b6c7d8e9f"),
                             IsDeleted = false,
                             LessonId = new Guid("77c74f8c-a3ef-4cb8-8a2c-b71ca6ecd33e"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "When is protein consumption most effective for muscle recovery?"
                         },
                         new
@@ -2018,7 +2021,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("e0f1a2b3-4d5e-4f6a-8c3d-6d7e8f9a0b1c"),
                             IsDeleted = false,
                             LessonId = new Guid("77c74f8c-a3ef-4cb8-8a2c-b71ca6ecd33e"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "Which protein source is faster digesting and ideal post-workout?"
                         },
                         new
@@ -2027,7 +2030,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("b3c4d5e6-7f8a-4d9b-9d6e-9a0b1c2d3e4f"),
                             IsDeleted = false,
                             LessonId = new Guid("77c74f8c-a3ef-4cb8-8a2c-b71ca6ecd33e"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "Casein protein is best consumed:"
                         },
                         new
@@ -2036,7 +2039,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("e6f7a8b9-0c1d-4d2e-8a9b-2d3e4f5a6b7c"),
                             IsDeleted = false,
                             LessonId = new Guid("77c74f8c-a3ef-4cb8-8a2c-b71ca6ecd33e"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "Combining different plant proteins can help:"
                         },
                         new
@@ -2045,7 +2048,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("e8b0b203-90ba-4285-ad9e-493bd3592135"),
                             IsDeleted = false,
                             LessonId = new Guid("0491fb6d-5264-4beb-88e6-a247489c4825"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "Which of the following are considered micronutrients?"
                         },
                         new
@@ -2054,7 +2057,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("742c20f9-e86b-42f5-b4ea-8570e33c72e9"),
                             IsDeleted = false,
                             LessonId = new Guid("0491fb6d-5264-4beb-88e6-a247489c4825"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "Which vitamin is essential for calcium absorption and bone health?"
                         },
                         new
@@ -2063,7 +2066,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("6222fac1-7b03-4910-a689-7389b679e51b"),
                             IsDeleted = false,
                             LessonId = new Guid("0491fb6d-5264-4beb-88e6-a247489c4825"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "Which mineral is important for oxygen transport in the blood?"
                         },
                         new
@@ -2072,7 +2075,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("3d4e27ab-2849-4260-9788-0a6d80e2b70c"),
                             IsDeleted = false,
                             LessonId = new Guid("0491fb6d-5264-4beb-88e6-a247489c4825"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "A deficiency in Vitamin C can lead to which condition?"
                         },
                         new
@@ -2081,7 +2084,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("7354444b-3ba1-4ce6-a684-37d5626ab44b"),
                             IsDeleted = false,
                             LessonId = new Guid("0491fb6d-5264-4beb-88e6-a247489c4825"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "Which group of vitamins is fat-soluble?"
                         },
                         new
@@ -2090,7 +2093,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("de739138-256a-4f36-8c38-d3e69a8a0f8e"),
                             IsDeleted = false,
                             LessonId = new Guid("0491fb6d-5264-4beb-88e6-a247489c4825"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "Zinc plays an important role in:"
                         },
                         new
@@ -2099,7 +2102,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("7336f137-8ef5-40d5-9a59-515889f0bb05"),
                             IsDeleted = false,
                             LessonId = new Guid("0491fb6d-5264-4beb-88e6-a247489c4825"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "Which vitamin is primarily produced by the body when exposed to sunlight?"
                         },
                         new
@@ -2108,7 +2111,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("4f1c3b7c-b8a9-4cbf-9a69-27b6e12a2bb0"),
                             IsDeleted = false,
                             LessonId = new Guid("b1adc18d-8c55-4a74-8bf6-a9a2943fd9e7"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "What is one of the main benefits of resistance training?"
                         },
                         new
@@ -2117,7 +2120,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("d1a2e87a-fbc1-47e0-9c0d-7fc3b5adad3b"),
                             IsDeleted = false,
                             LessonId = new Guid("b1adc18d-8c55-4a74-8bf6-a9a2943fd9e7"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "Resistance training can help prevent which age-related condition?"
                         },
                         new
@@ -2126,7 +2129,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("99ed08ac-d2f2-4696-9cfa-471f89e6e1ae"),
                             IsDeleted = false,
                             LessonId = new Guid("b1adc18d-8c55-4a74-8bf6-a9a2943fd9e7"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "How does resistance training affect metabolism?"
                         },
                         new
@@ -2135,7 +2138,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("8d329f9a-9073-467c-8bb8-7748d7276bb3"),
                             IsDeleted = false,
                             LessonId = new Guid("b1adc18d-8c55-4a74-8bf6-a9a2943fd9e7"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "Resistance training can help with fat loss primarily by:"
                         },
                         new
@@ -2144,7 +2147,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("c7f01db0-19b4-4c64-bb64-f87fdf38ff6c"),
                             IsDeleted = false,
                             LessonId = new Guid("b1adc18d-8c55-4a74-8bf6-a9a2943fd9e7"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "Which of the following is a mental health benefit of resistance training?"
                         },
                         new
@@ -2153,7 +2156,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("86922f5c-4f7f-43d7-81c0-08f697e8fc6d"),
                             IsDeleted = false,
                             LessonId = new Guid("b1adc18d-8c55-4a74-8bf6-a9a2943fd9e7"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "Resistance training improves bone health by:"
                         },
                         new
@@ -2162,7 +2165,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("6b3c55d0-3ec7-4b8c-bc36-9b1c6ac8d3f6"),
                             IsDeleted = false,
                             LessonId = new Guid("b1adc18d-8c55-4a74-8bf6-a9a2943fd9e7"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "Long-term resistance training can reduce the risk of:"
                         },
                         new
@@ -2171,7 +2174,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("9f87c20a-60c0-4c3a-8b8c-9abbeed8f761"),
                             IsDeleted = false,
                             LessonId = new Guid("cde73646-a8fb-4131-9308-8269ea662c54"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "Which primary muscle does the bench press target?"
                         },
                         new
@@ -2180,7 +2183,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("8e154d3b-1f8b-4ef4-85a5-3014f5ea31c2"),
                             IsDeleted = false,
                             LessonId = new Guid("cde73646-a8fb-4131-9308-8269ea662c54"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "The squat primarily works which muscle group?"
                         },
                         new
@@ -2189,7 +2192,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f83a6d41-2405-4c38-8b64-546e61d8c6fc"),
                             IsDeleted = false,
                             LessonId = new Guid("cde73646-a8fb-4131-9308-8269ea662c54"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "Deadlifts primarily target:"
                         },
                         new
@@ -2198,7 +2201,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("bbbf52d1-d379-4b59-a63f-38b611897b93"),
                             IsDeleted = false,
                             LessonId = new Guid("cde73646-a8fb-4131-9308-8269ea662c54"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "Pull-ups primarily strengthen which muscle group?"
                         },
                         new
@@ -2207,7 +2210,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("5b1d3a91-2d5f-44cb-8e0d-3904a04d3a3d"),
                             IsDeleted = false,
                             LessonId = new Guid("cde73646-a8fb-4131-9308-8269ea662c54"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "Which exercise is best for isolating the biceps?"
                         },
                         new
@@ -2216,7 +2219,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("8c5dcaaa-96a0-4267-9eb6-b94ec78e0f7a"),
                             IsDeleted = false,
                             LessonId = new Guid("cde73646-a8fb-4131-9308-8269ea662c54"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "Which muscle is primarily targeted by the overhead shoulder press?"
                         },
                         new
@@ -2225,7 +2228,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("aef3c9d5-9e37-45d2-9ec0-b9e2d9c16e60"),
                             IsDeleted = false,
                             LessonId = new Guid("cde73646-a8fb-4131-9308-8269ea662c54"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "Lunges are most effective for strengthening:"
                         },
                         new
@@ -2234,7 +2237,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("4e32c960-39e4-4fd0-87c1-6b5645d1a0f2"),
                             IsDeleted = false,
                             LessonId = new Guid("8e10a739-c7a9-4c9e-887c-b2599be94f3a"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "What is a “training split” in fitness?"
                         },
                         new
@@ -2243,7 +2246,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("9f0c9cf0-c5e6-46f4-9c36-134d962a28f9"),
                             IsDeleted = false,
                             LessonId = new Guid("8e10a739-c7a9-4c9e-887c-b2599be94f3a"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "Which is a common beginner-friendly training split?"
                         },
                         new
@@ -2252,7 +2255,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("5ec2107b-82eb-4721-bbbc-62aa5d1af6c3"),
                             IsDeleted = false,
                             LessonId = new Guid("8e10a739-c7a9-4c9e-887c-b2599be94f3a"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "How many times per week should a beginner ideally train each muscle group?"
                         },
                         new
@@ -2261,7 +2264,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("a07312e1-9b6c-46c4-90bb-49c1386e9122"),
                             IsDeleted = false,
                             LessonId = new Guid("8e10a739-c7a9-4c9e-887c-b2599be94f3a"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "What is the main advantage of a full-body workout split?"
                         },
                         new
@@ -2270,7 +2273,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("7c66cb38-1a4c-4c36-9b8a-f0a632cd208f"),
                             IsDeleted = false,
                             LessonId = new Guid("8e10a739-c7a9-4c9e-887c-b2599be94f3a"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "Which training split is best for maximizing recovery while still training frequently?"
                         },
                         new
@@ -2279,7 +2282,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f88a1ed1-8d71-4d61-a0bb-d91e9b3d0c3f"),
                             IsDeleted = false,
                             LessonId = new Guid("8e10a739-c7a9-4c9e-887c-b2599be94f3a"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "Why is rest important between training sessions for the same muscle group?"
                         },
                         new
@@ -2288,7 +2291,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("ace71c5c-f9f3-49cc-b229-5d54f46f04d0"),
                             IsDeleted = false,
                             LessonId = new Guid("8e10a739-c7a9-4c9e-887c-b2599be94f3a"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "An advanced lifter looking to focus on lagging muscle groups might benefit most from:"
                         },
                         new
@@ -2297,7 +2300,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("e15973be-d5b9-4db0-8a25-8fbcb18d80cf"),
                             IsDeleted = false,
                             LessonId = new Guid("81476c31-4e91-41d5-b37e-422e97b5882e"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "What is a compound movement?"
                         },
                         new
@@ -2306,7 +2309,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("ed8fd22a-57e2-42d5-8238-7e6ef1537f12"),
                             IsDeleted = false,
                             LessonId = new Guid("81476c31-4e91-41d5-b37e-422e97b5882e"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "Which of the following is an example of a compound movement?"
                         },
                         new
@@ -2315,7 +2318,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("9d52f7a2-3538-4d07-b633-08c9334504e8"),
                             IsDeleted = false,
                             LessonId = new Guid("81476c31-4e91-41d5-b37e-422e97b5882e"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "Which of the following is an isolation exercise?"
                         },
                         new
@@ -2324,7 +2327,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("8233a9f1-cfd0-44d7-a16a-8a993f41c292"),
                             IsDeleted = false,
                             LessonId = new Guid("81476c31-4e91-41d5-b37e-422e97b5882e"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "What is the main benefit of compound movements?"
                         },
                         new
@@ -2333,7 +2336,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f1db93db-420d-4d91-97a5-760312f0a633"),
                             IsDeleted = false,
                             LessonId = new Guid("81476c31-4e91-41d5-b37e-422e97b5882e"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "Why are isolation exercises useful?"
                         },
                         new
@@ -2342,7 +2345,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("f9c02ef8-1ed0-44f0-b057-4b8a4a8e97c1"),
                             IsDeleted = false,
                             LessonId = new Guid("81476c31-4e91-41d5-b37e-422e97b5882e"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "Which is the best approach for building a balanced physique?"
                         },
                         new
@@ -2351,7 +2354,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("be0f259c-c282-4c5c-bf45-27d9d7468f7d"),
                             IsDeleted = false,
                             LessonId = new Guid("81476c31-4e91-41d5-b37e-422e97b5882e"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "Why are compound lifts often performed at the beginning of a workout?"
                         },
                         new
@@ -2360,7 +2363,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("6db1e63d-9c8d-42a1-975a-2e4c91f55f2d"),
                             IsDeleted = false,
                             LessonId = new Guid("7e065ddc-a469-4bbe-b205-113c3d96f4c5"),
-                            OrderNumber = 1,
+                            OrderNumber = 0,
                             Text = "Why is recovery important after training?"
                         },
                         new
@@ -2369,7 +2372,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("96dfaf70-57dc-4210-99e5-f3b7dc9d8415"),
                             IsDeleted = false,
                             LessonId = new Guid("7e065ddc-a469-4bbe-b205-113c3d96f4c5"),
-                            OrderNumber = 2,
+                            OrderNumber = 0,
                             Text = "Which of the following is a type of active recovery?"
                         },
                         new
@@ -2378,7 +2381,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("c4d9784f-7d60-4fdc-858a-71af0a3f3a18"),
                             IsDeleted = false,
                             LessonId = new Guid("7e065ddc-a469-4bbe-b205-113c3d96f4c5"),
-                            OrderNumber = 3,
+                            OrderNumber = 0,
                             Text = "How many hours of sleep are generally recommended for optimal recovery?"
                         },
                         new
@@ -2387,7 +2390,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("7d8f3079-46dc-4a3f-a69d-5ad1a7bbf79a"),
                             IsDeleted = false,
                             LessonId = new Guid("7e065ddc-a469-4bbe-b205-113c3d96f4c5"),
-                            OrderNumber = 4,
+                            OrderNumber = 0,
                             Text = "What is a deload week?"
                         },
                         new
@@ -2396,7 +2399,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("3b7ec122-1ed4-408f-a60c-23d1de8ccf9f"),
                             IsDeleted = false,
                             LessonId = new Guid("7e065ddc-a469-4bbe-b205-113c3d96f4c5"),
-                            OrderNumber = 5,
+                            OrderNumber = 0,
                             Text = "Which nutrient is particularly important for muscle repair?"
                         },
                         new
@@ -2405,7 +2408,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("47836262-2b8f-42d3-a92c-9c07f87ecf0a"),
                             IsDeleted = false,
                             LessonId = new Guid("7e065ddc-a469-4bbe-b205-113c3d96f4c5"),
-                            OrderNumber = 6,
+                            OrderNumber = 0,
                             Text = "Which of the following can negatively affect recovery?"
                         },
                         new
@@ -2414,7 +2417,7 @@ namespace FitFox.Data.Migrations
                             CorrectAnswerId = new Guid("9f6a55dc-d7de-4d67-ae8e-8220700dcd55"),
                             IsDeleted = false,
                             LessonId = new Guid("7e065ddc-a469-4bbe-b205-113c3d96f4c5"),
-                            OrderNumber = 7,
+                            OrderNumber = 0,
                             Text = "Which strategy helps reduce delayed onset muscle soreness (DOMS)?"
                         });
                 });

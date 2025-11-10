@@ -61,6 +61,7 @@ div.choose-activity{
 .choose-map-box{
     display:flex;
     flex-direction:column;
+    justify-content:space-between;
     align-items:center;
     width: 20em;
     height:20em;
@@ -69,6 +70,71 @@ div.choose-activity{
     padding: 1rem;
 }
 
-.choose-map-box a{
+form[action="Map/GetAllMaps"] button {
     margin-top: auto;
 }
+
+.lesson-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.choose-lesson {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10em;
+}
+
+.choose-lesson-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    width: 20em;
+    height: 20em;
+    border: solid;
+    border-color: black;
+    padding: 1rem;
+}
+
+form[action="Lesson/GetMapLessons"] button {
+    margin-top:auto;
+}
+
+.choose-lesson-box h3{
+    text-align:center;
+}
+
+h1.lesson-results, h2.lesson-score{
+    text-align:center;
+}
+
+div.lesson-result-container{
+    display:flex;
+    flex-direction:row;
+    padding-top:2em;
+    gap:2em
+}
+
+div.wrong-answers, 
+div.correct-answers{
+    border:solid;
+    border-width:2px;
+    margin-bottom:0.5em;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    background-color:aquamarine;
+    padding:1.5em;
+    /*max-width: 50%;*/
+}
+
+/*div.correct-answers-wrapper{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-content:center;
+}*/
