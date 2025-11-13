@@ -129,12 +129,38 @@ div.correct-answers{
     flex:1;
     background-color:aquamarine;
     padding:1.5em;
-    /*max-width: 50%;*/
 }
 
-/*div.correct-answers-wrapper{
+div.user-honor-room-wrapper{
     display:flex;
     flex-direction:column;
     justify-content:center;
-    align-content:center;
-}*/
+}
+
+div.user-honor-room-wrapper div h2,
+h1.honor-room{
+    text-align:center;
+}
+
+div.user-honor-room-wrapper div {
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    border:0.3em, solid;
+    margin: 1em;
+}
+
+div.user-honor-room-wrapper div p {
+    text-align:center;
+}
+
+div.dropdown my-3{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+
+ul.dropdown-menu dropdown-menu-center {
+    left: 50%;
+    transform: translateX(-50%)
+}

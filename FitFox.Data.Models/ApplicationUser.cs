@@ -37,7 +37,7 @@ namespace FitFox.Data.Models
 		[Comment("Collection of the User's finished lessons.")]
 		public virtual ICollection<UserLesson> UserLessons { get; set; }
 
-		[Comment("Collection of the User's finished maps.")]
+		[Comment("Collection of the User's started maps.")]
 		public virtual ICollection<UserMap> UserMaps { get; set; }
 
 		public bool IsDeleted { get; set; }

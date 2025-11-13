@@ -1,5 +1,8 @@
+using FitFox.Data.Models;
 using FitFox.Models;
+using FitFox.Services.Data.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,9 +11,15 @@ namespace FitFox.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
+		private readonly IApplicationUserService _userService;
+		private readonly UserManager<ApplicationUser> _userManager;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger,
+							IApplicationUserService userService,
+							UserManager<ApplicationUser> userManager)
 		{
+			_userManager = userManager;
+			_userService = userService;
 			_logger = logger;
 		}
 
@@ -32,9 +41,16 @@ namespace FitFox.Controllers
 
 		[HttpGet]
 		[Authorize]
-		public IActionResult UserAchievements()
+		public async Task<IActionResult> UserAchievements()
 		{
-			return View();
+			var user = await _userManager.GetUserAsync(User);
+			if (user == null)
+			{
+				return Unauthorized();
+			}
+			var result = await _userService.FetchUserInfoAsync(user.Id);
+
+			return View(result);
 		}
 	}
 }

@@ -1,5 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using FitFox.Web.ViewModels.Player
+@model PlayerInfo
+
+<div class="user-honor-room-wrapper">
+	<h1 class="honor-room">The Honor Room</h1>
+
+
+	<div class="completed-lessons">
+		<h2>Completed lessons:</h2>
+	</div>
+
+	<div class="current-level">
+		<h2>Level:</h2>
+		<p>Level @Model.CurrentLevel.LevelNumber - @Model.CurrentLevel.LevelTitle</p>
+		<p>XP:@Model.CurrentXP</p>
+	</div>
+
+	<div class="maps-coverage">
+		<h2>Maps progression:</h2>
+	</div>
+
+	<div class="achievements">
+		<h2>Achievements:</h2>
+		@{
+			if (Model.Achievements.Count > 0)
+			{
+				<p></p>
+			}
+			else
+			{
+				<p>Currently no achievements.</p>
+			}
+		}
+	</div>
+</div>

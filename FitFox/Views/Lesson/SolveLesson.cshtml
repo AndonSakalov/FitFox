@@ -68,7 +68,31 @@
 
                     if (response.goToSummary) {
                         // lesson finished
-                        window.location.href = '/Lesson/LessonSummary?lessonId=@ViewBag.LessonId';
+                              if (response.goToSummary) {
+                        // create a form and submit it as POST
+                        const form = document.createElement("form");
+                        form.method = "POST";
+                        form.action = "/Lesson/MarkLessonPassed";
+
+                        const input = document.createElement("input");
+                        input.type = "hidden";
+                        input.name = "lessonId";
+                        input.value = lessonId;
+                        form.appendChild(input);
+
+                        // add antiforgery token if your controller has [ValidateAntiForgeryToken]
+                        const token = $('input[name="__RequestVerificationToken"]').val();
+                        if (token) {
+                            const tokenInput = document.createElement("input");
+                            tokenInput.type = "hidden";
+                            tokenInput.name = "__RequestVerificationToken";
+                            tokenInput.value = token;
+                            form.appendChild(tokenInput);
+                        }
+
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
                     } 
                     else {
                         // move to next question

@@ -117,7 +117,7 @@ namespace FitFox.Services.Data
 
 			if (question == null)
 			{
-				throw new Exception("Lesson not found!");
+				throw new Exception("Question not found!");
 			}
 
 			QuestionResult questionResult = new QuestionResult()

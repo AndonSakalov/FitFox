@@ -1,5 +1,6 @@
 ﻿using FitFox.Data.Models;
 using FitFox.Services.Data.Interfaces;
+using FitFox.Web.ViewModels.Lesson;
 using FitFox.Web.ViewModels.Question;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -33,7 +34,7 @@ namespace FitFox.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> StartLesson(Guid lessonId)
+		public async Task<IActionResult> MarkLessonPassed(Guid lessonId)
 		{
 			var user = await _userManager.GetUserAsync(User);
 
@@ -41,10 +42,34 @@ namespace FitFox.Controllers
 			{
 				return Unauthorized();
 			}
+			var key = $"LessonResults_{lessonId}";
+			var json = HttpContext.Session.GetString(key);
 
-			await _userService.StartLessonForUserAsync(lessonId, user.Id);
+			var results = System.Text.Json.JsonSerializer.Deserialize<List<QuestionResult>>(json)!;
 
-			return RedirectToAction("SolveLesson", "Lesson", new { lessonId }); //Continue here, reload page after every question + info on wrong ones
+			var model = new LessonSummaryViewModel()
+			{
+				QuestionResults = results,
+			};
+
+			if (results.Where(qr => qr.IsCorrect).Count() == results.Count()) //Success
+			{
+				model.HasPassed = true; //HasPassed = false; by default
+			}
+
+			if (model.HasPassed)
+			{
+				var result = await _userService.GrantUserXp(user.Id, lessonId);
+
+				if (!result)
+				{
+					throw new Exception("Cant grant XP!");
+				}
+
+				await _userService.MarkLessonAsPassed(lessonId, user.Id);
+			}
+
+			return RedirectToAction("LessonSummary", "Lesson", new { lessonId });
 		}
 
 		[HttpGet]
@@ -54,7 +79,7 @@ namespace FitFox.Controllers
 
 			if (question == null)
 			{
-				return RedirectToAction("LessonSummary", "Lesson", new { lessonId });
+				return RedirectToAction("MarkLessonPassed", "Lesson", new { lessonId });
 			}
 
 			ViewBag.LessonId = lessonId;
@@ -101,7 +126,8 @@ namespace FitFox.Controllers
 			});
 		}
 
-		public IActionResult LessonSummary(Guid lessonId)
+		[HttpGet]
+		public async Task<IActionResult> LessonSummary(Guid lessonId)
 		{
 			var key = $"LessonResults_{lessonId}";
 			var json = HttpContext.Session.GetString(key);
@@ -111,9 +137,19 @@ namespace FitFox.Controllers
 				return View(new List<QuestionResult>());
 			}
 
-			var results = System.Text.Json.JsonSerializer.Deserialize<List<QuestionResult>>(json);
+			var results = System.Text.Json.JsonSerializer.Deserialize<List<QuestionResult>>(json)!;
 
-			return View(results);
+			var model = new LessonSummaryViewModel()
+			{
+				QuestionResults = results,
+			};
+
+			if (results.Where(qr => qr.IsCorrect).Count() == results.Count()) //Success
+			{
+				model.HasPassed = true; //HasPassed = false; by default
+			}
+
+			return View(model); //AJAX>POST method to grant xp and update the 
 		}
 
 	}

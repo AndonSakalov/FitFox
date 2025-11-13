@@ -60,7 +60,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Achievements");
+                    b.ToTable("Achievements", (string)null);
                 });
 
             modelBuilder.Entity("FitFox.Data.Models.Answer", b =>
@@ -86,7 +86,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers");
+                    b.ToTable("Answers", (string)null);
 
                     b.HasData(
                         new
@@ -1567,7 +1567,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasIndex("MapId");
 
-                    b.ToTable("Lessons");
+                    b.ToTable("Lessons", (string)null);
 
                     b.HasData(
                         new
@@ -1686,7 +1686,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Levels");
+                    b.ToTable("Levels", (string)null);
 
                     b.HasData(
                         new
@@ -1727,7 +1727,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Maps");
+                    b.ToTable("Maps", (string)null);
 
                     b.HasData(
                         new
@@ -1763,7 +1763,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasIndex("AchievementId");
 
-                    b.ToTable("UsersAchievements");
+                    b.ToTable("UsersAchievements", (string)null);
                 });
 
             modelBuilder.Entity("FitFox.Data.Models.MappingModels.UserLesson", b =>
@@ -1778,7 +1778,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasIndex("LessonId");
 
-                    b.ToTable("UsersLessons");
+                    b.ToTable("UsersLessons", (string)null);
                 });
 
             modelBuilder.Entity("FitFox.Data.Models.MappingModels.UserMap", b =>
@@ -1793,7 +1793,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasIndex("MapId");
 
-                    b.ToTable("UsersMaps");
+                    b.ToTable("UsersMaps", (string)null);
                 });
 
             modelBuilder.Entity("FitFox.Data.Models.Question", b =>
@@ -1829,7 +1829,7 @@ namespace FitFox.Data.Migrations
 
                     b.HasIndex("LessonId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
 
                     b.HasData(
                         new
