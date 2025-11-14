@@ -35,4 +35,11 @@ else
 		</ul>
 	</div>
 </div>
-
+@if (Model.HasLeveledUp)
+{
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			alert("🔥 Congrats! You leveled up!");
+		});
+	</script>
+}

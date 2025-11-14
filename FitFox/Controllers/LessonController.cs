@@ -37,7 +37,7 @@ namespace FitFox.Controllers
 		public async Task<IActionResult> MarkLessonPassed(Guid lessonId)
 		{
 			var user = await _userManager.GetUserAsync(User);
-
+			var hasLeveledUp = false;
 			if (user == null)
 			{
 				return Unauthorized();
@@ -66,10 +66,11 @@ namespace FitFox.Controllers
 					throw new Exception("Cant grant XP!");
 				}
 
+				hasLeveledUp = await _userService.TryLevelUp(user.Id);
 				await _userService.MarkLessonAsPassed(lessonId, user.Id);
 			}
 
-			return RedirectToAction("LessonSummary", "Lesson", new { lessonId });
+			return RedirectToAction("LessonSummary", "Lesson", new { lessonId, hasLeveledUp });
 		}
 
 		[HttpGet]
@@ -127,21 +128,19 @@ namespace FitFox.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> LessonSummary(Guid lessonId)
+		public async Task<IActionResult> LessonSummary(Guid lessonId, bool hasLeveledUp)
 		{
 			var key = $"LessonResults_{lessonId}";
 			var json = HttpContext.Session.GetString(key);
-
 			if (json == null)
 			{
 				return View(new List<QuestionResult>());
 			}
-
 			var results = System.Text.Json.JsonSerializer.Deserialize<List<QuestionResult>>(json)!;
-
 			var model = new LessonSummaryViewModel()
 			{
 				QuestionResults = results,
+				HasLeveledUp = hasLeveledUp
 			};
 
 			if (results.Where(qr => qr.IsCorrect).Count() == results.Count()) //Success
@@ -149,7 +148,7 @@ namespace FitFox.Controllers
 				model.HasPassed = true; //HasPassed = false; by default
 			}
 
-			return View(model); //AJAX>POST method to grant xp and update the 
+			return View(model);
 		}
 
 	}

@@ -16,15 +16,18 @@ namespace FitFox.Services.Data
 		private readonly IRepository<ApplicationUser, Guid> _applicationUserRepository;
 		private readonly IRepository<Map, Guid> _mapRepository;
 		private readonly IRepository<Lesson, Guid> _lessonRepository;
+		private readonly IRepository<Level, Guid> _levelRepository;
 
 		public ApplicationUserService(
 			IRepository<ApplicationUser, Guid> applicationUserRepository,
 			IRepository<Map, Guid> mapRepository,
-			IRepository<Lesson, Guid> lessonRepository)
+			IRepository<Lesson, Guid> lessonRepository,
+			IRepository<Level, Guid> levelRepository)
 		{
 			_applicationUserRepository = applicationUserRepository;
 			_mapRepository = mapRepository;
 			_lessonRepository = lessonRepository;
+			_levelRepository = levelRepository;
 		}
 
 		public async Task MarkLessonAsPassed(Guid lessonId, Guid userId)
@@ -154,6 +157,35 @@ namespace FitFox.Services.Data
 			bool result = await _applicationUserRepository.UpdateAsync(user);
 
 			return result;
+		}
+
+		public async Task<bool> TryLevelUp(Guid userId)
+		{
+			var user = await _applicationUserRepository.GetAllAttached()
+				.Include(p => p.Level)
+				.FirstOrDefaultAsync(p => p.Id == userId);
+			if (user == null)
+			{
+				return false;
+			}
+
+			var currentLevel = user.Level;
+			var nextLevel = await _levelRepository.GetAllAttached()
+				.FirstOrDefaultAsync(l => l.LevelNumber == currentLevel.LevelNumber + 1);
+			if (nextLevel == null)
+			{
+				return false;
+			}
+
+			if (user.CurrentXP >= nextLevel.RequiredXP)
+			{
+				user.LevelId = nextLevel.Id;
+				user.CurrentXP = user.CurrentXP - nextLevel.RequiredXP;
+				await _applicationUserRepository.UpdateAsync(user);
+				return true;
+			}
+
+			return false;
 		}
 	}
 }

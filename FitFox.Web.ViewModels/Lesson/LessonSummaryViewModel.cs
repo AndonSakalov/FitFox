@@ -10,5 +10,8 @@ namespace FitFox.Web.ViewModels.Lesson
 
 		[Required]
 		public bool HasPassed { get; set; } = false;
+
+		[Required]
+		public bool HasLeveledUp { get; set; } = false;
 	}
 }

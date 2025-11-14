@@ -164,3 +164,22 @@ ul.dropdown-menu dropdown-menu-center {
     left: 50%;
     transform: translateX(-50%)
 }
+
+div.map-coverage{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+
+div.single-map-coverage-box {
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    min-width:50%;
+    max-width:50%;
+    align-self:center;
+}
+
+div.single-map-coverage-box h3{
+    text-align:center;
+}

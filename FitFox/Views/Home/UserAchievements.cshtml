@@ -17,6 +17,13 @@
 
 	<div class="maps-coverage">
 		<h2>Maps progression:</h2>
+		@foreach(var kvp in Model.MapsCoverage)
+		{
+			<div class="single-map-coverage-box">
+				<h3>@kvp.Key.Title</h3>
+				<p>@kvp.Value %</p>
+			</div>
+		}
 	</div>
 
 	<div class="achievements">

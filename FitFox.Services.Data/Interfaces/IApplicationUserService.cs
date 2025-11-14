@@ -11,5 +11,7 @@ namespace FitFox.Services.Data.Interfaces
 		Task<PlayerInfo> FetchUserInfoAsync(Guid userId);
 
 		Task<bool> GrantUserXp(Guid userId, Guid lessonId);
+
+		Task<bool> TryLevelUp(Guid userId);
 	}
 }
