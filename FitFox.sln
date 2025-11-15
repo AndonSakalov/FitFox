@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFox.Services.Data", "Fit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFox.Web.ViewModels", "FitFox.Web.ViewModels\FitFox.Web.ViewModels.csproj", "{C630A0E2-8C10-4301-87A6-69ADE3FBF912}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitFox.Common", "FitFox.Common\FitFox.Common.csproj", "{92F77750-9F99-48F2-A663-A9CA2F9AE0FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C630A0E2-8C10-4301-87A6-69ADE3FBF912}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C630A0E2-8C10-4301-87A6-69ADE3FBF912}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C630A0E2-8C10-4301-87A6-69ADE3FBF912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92F77750-9F99-48F2-A663-A9CA2F9AE0FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92F77750-9F99-48F2-A663-A9CA2F9AE0FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92F77750-9F99-48F2-A663-A9CA2F9AE0FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92F77750-9F99-48F2-A663-A9CA2F9AE0FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FitFox.Common\FitFox.Common.csproj" />
     <ProjectReference Include="..\FitFox.Data.Models\FitFox.Data.Models.csproj" />
   </ItemGroup>
 
