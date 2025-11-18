@@ -4,7 +4,7 @@
 	{
 		public static class AchievementImageURLs
 		{
-			public const string NoImgImg = @"FitFox/wwwroot/images/No_Image_Available.jpg";
+			public const string NoImgImg = @"/images/No_Image_Available.jpg";
 		}
 	}
 }

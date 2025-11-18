@@ -1,4 +1,5 @@
-﻿using FitFox.Web.ViewModels.Player;
+﻿using FitFox.Web.ViewModels.Achievement;
+using FitFox.Web.ViewModels.Player;
 
 namespace FitFox.Services.Data.Interfaces
 {
@@ -13,5 +14,9 @@ namespace FitFox.Services.Data.Interfaces
 		Task<bool> GrantUserXp(Guid userId, Guid lessonId);
 
 		Task<bool> TryLevelUp(Guid userId);
+
+		Task<(bool isSuccessful, IEnumerable<AchievementGrantedViewModel> achievementsGranted)> CheckForAchievementsToGrantAsync(Guid userId);
+
+		Task<bool> UpdateMapCoverage(Guid userId, Guid lessonId);
 	}
 }

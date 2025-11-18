@@ -23,9 +23,18 @@ namespace FitFox.Controllers
 			_logger = logger;
 		}
 
-		public IActionResult Index()
+		[Authorize]
+		public async Task<IActionResult> Index()
 		{
-			return View();
+			var user = await _userManager.GetUserAsync(User);
+			if (user == null)
+			{
+				return Unauthorized();
+			}
+
+			var achievementsGranted = await _userService.CheckForAchievementsToGrantAsync(user.Id);
+
+			return View(achievementsGranted.achievementsGranted);
 		}
 
 		public IActionResult Privacy()

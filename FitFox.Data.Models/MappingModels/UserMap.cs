@@ -11,5 +11,8 @@ namespace FitFox.Data.Models.MappingModels
 		[Required]
 		public Guid MapId { get; set; }
 		public virtual Map Map { get; set; } = null!;
+
+		[Required]
+		public double PercentCovered { get; set; }
 	}
 }

@@ -1,8 +1,26 @@
-﻿@{
+﻿@using FitFox.Web.ViewModels.Achievement;
+@model IEnumerable<AchievementGrantedViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="home-page">
+    <div id="achievement-popup" class="achievement-popup">
+        🎉 Congrats! You unlocked an achievement!
+    </div>
+    @if (Model != null && Model.Any())
+    {
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let delay =  0;
+                @foreach (var ach in Model)
+                {
+                     @:setTimeout(() => showAchievementPopup("@ach.Title"), delay);
+                     @:delay += 3500;
+                }
+            });
+        </script>
+    }
     <h1 class="display-4">Welcome to FitFox!</h1>
     <img class="fit-fox-character" src="~/TheFitFoxCharacter.png"/>
     <div class="choose-activity">
@@ -14,5 +32,18 @@
             <h2>Daily lesson</h2>
             <a href="">Choose a map</a>
         </div>
-    </div>>
+    </div>
 </div>
+<script>
+        function showAchievementPopup(message, duration = 3000) {
+        const popup = document.getElementById("achievement-popup");
+        popup.textContent = "🎉 " + message;
+        popup.style.opacity = 1; // fade in
+        popup.style.pointerEvents = "auto";
+
+        setTimeout(() => {
+            popup.style.opacity = 0; // fade out
+            popup.style.pointerEvents = "none";
+        }, duration);
+    }
+</script>

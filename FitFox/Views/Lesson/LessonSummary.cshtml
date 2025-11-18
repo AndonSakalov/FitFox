@@ -1,7 +1,7 @@
 ﻿@using FitFox.Web.ViewModels.Lesson
 @model LessonSummaryViewModel
 @{
-	int correctAnswers = @Model.QuestionResults.Where(s => s.IsCorrect == true).Count();
+	int correctAnswers = @Model.QuestionResults.Count(s => s.IsCorrect == true);
 	int totalAnswers = Model.QuestionResults.Count;
 }
 

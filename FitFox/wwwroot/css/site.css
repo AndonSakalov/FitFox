@@ -183,3 +183,30 @@ div.single-map-coverage-box {
 div.single-map-coverage-box h3{
     text-align:center;
 }
+
+.achievement-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    z-index: 9999;
+}
+
+img.achievement-icon{
+    height:auto;
+    width:10em;
+    align-self:center;
+}
+
+achievement-display-box{
+    display:flex;
+    flex-direction:row;
+    margin-bottom:1em;
+}

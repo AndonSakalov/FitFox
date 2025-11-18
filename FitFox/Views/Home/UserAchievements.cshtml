@@ -29,9 +29,16 @@
 	<div class="achievements">
 		<h2>Achievements:</h2>
 		@{
-			if (Model.Achievements.Count > 0)
+			if (Model.Achievements != null && Model.Achievements.Any())
 			{
-				<p></p>
+				foreach(var ach in Model.Achievements)
+				{
+					<div class="achievement-display-box">
+						<p>@ach.Title</p>
+						<img class="achievement-icon" src="@ach.IconURL" alt="@ach.Title" />
+						<p>@ach.Description</p>
+					</div>
+				}
 			}
 			else
 			{

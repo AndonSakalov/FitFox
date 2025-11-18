@@ -4,6 +4,7 @@ using FitFox.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitFox.Data.Migrations
 {
     [DbContext(typeof(FitFoxDbContext))]
-    partial class FitFoxDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251117042239_AddCoveragePercentInUserMapModel")]
+    partial class AddCoveragePercentInUserMapModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,7 +72,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 0,
                             ConditionValue = 1,
                             Description = "Solve one lesson with a perfect score.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Getting started!"
                         },
@@ -79,7 +82,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 1,
                             ConditionValue = 50,
                             Description = "Cover 50% of map's lessons.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "One more set to go!"
                         },
@@ -89,7 +92,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 1,
                             ConditionValue = 100,
                             Description = "Cover 100% of map's lessons.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Workout done!"
                         },
@@ -99,7 +102,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 2,
                             ConditionValue = 1,
                             Description = "Pass your first daily quest.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Additional gains!"
                         },
@@ -109,7 +112,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 2,
                             ConditionValue = 5,
                             Description = "Getting strong!",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Getting strong!"
                         },
@@ -119,7 +122,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 2,
                             ConditionValue = 10,
                             Description = "Pass ten daily quests.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Consistency is the key!"
                         },
@@ -129,7 +132,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 0,
                             ConditionValue = 5,
                             Description = "Solve five lessons with a perfect score.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Smart and strong? Unbreakable!"
                         },
@@ -139,7 +142,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 0,
                             ConditionValue = 10,
                             Description = "Solve ten lessons with a perfect score.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Leave some knowledge for the rest of us!"
                         },
@@ -149,7 +152,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 1,
                             ConditionValue = 2,
                             Description = "Pass two maps.",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Strong and lean? Oh boy.."
                         },
@@ -159,7 +162,7 @@ namespace FitFox.Data.Migrations
                             ConditionType = 3,
                             ConditionValue = 5,
                             Description = "Reach level five",
-                            IconUrl = "/images/No_Image_Available.jpg",
+                            IconUrl = "FitFox/wwwroot/images/No_Image_Available.jpg",
                             IsDeleted = false,
                             Title = "Trust the grind!"
                         });
@@ -1963,8 +1966,8 @@ namespace FitFox.Data.Migrations
                     b.Property<Guid>("MapId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double>("PercentCovered")
-                        .HasColumnType("float");
+                    b.Property<int>("PercentCovered")
+                        .HasColumnType("int");
 
                     b.HasKey("UserId", "MapId");
 

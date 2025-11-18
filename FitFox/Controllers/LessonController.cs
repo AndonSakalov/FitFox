@@ -52,7 +52,7 @@ namespace FitFox.Controllers
 				QuestionResults = results,
 			};
 
-			if (results.Where(qr => qr.IsCorrect).Count() == results.Count()) //Success
+			if (results.Count(qr => qr.IsCorrect) == results.Count()) //Success
 			{
 				model.HasPassed = true; //HasPassed = false; by default
 			}
@@ -68,6 +68,12 @@ namespace FitFox.Controllers
 
 				hasLeveledUp = await _userService.TryLevelUp(user.Id);
 				await _userService.MarkLessonAsPassed(lessonId, user.Id);
+
+				bool isSuccessful = await _userService.UpdateMapCoverage(user.Id, lessonId);
+				if (!isSuccessful)
+				{
+					throw new Exception("Can't update map coverage!");
+				}
 			}
 
 			return RedirectToAction("LessonSummary", "Lesson", new { lessonId, hasLeveledUp });
@@ -143,7 +149,7 @@ namespace FitFox.Controllers
 				HasLeveledUp = hasLeveledUp
 			};
 
-			if (results.Where(qr => qr.IsCorrect).Count() == results.Count()) //Success
+			if (results.Count(qr => qr.IsCorrect) == results.Count()) //Success
 			{
 				model.HasPassed = true; //HasPassed = false; by default
 			}
